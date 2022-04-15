@@ -158,7 +158,9 @@ iframe {
 [ login ]*/
 
 .container-login100 {
+
   width: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -167,7 +169,7 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -192,7 +194,7 @@ iframe {
 }
 
 .wrap-login100 {
-  margin-top: 100px;
+  margin-top: 2px;
   width: 390px;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
@@ -300,7 +302,7 @@ iframe {
   align-items: center;
   padding: 0 20px;
   min-width: 160px;
-  height: 50px;
+  height: 40px;
   background-color: #ff0000;
   border-radius: 25px;
 

@@ -12,11 +12,18 @@ import { RegistroVendedorComponent } from './registro_entidades/registro-vendedo
 import { RouterModule,Routes } from '@angular/router';
 import { CuentaCompristaComponent } from './cuenta/cuenta-comprista/cuenta-comprista.component';
 import { HeaderComponent } from './header/header.component';
+import { CuentaVendedorComponent } from './cuenta/cuenta-vendedor/cuenta-vendedor.component';
+import { RegisterProductoComponent } from './cuenta/cuenta-vendedor/register-producto/register-producto.component';
+import { DetalleProductoComponent } from './cuenta/cuenta-vendedor/detalle-producto/detalle-producto.component';
 
 const routes: Routes= [
   {path:'',redirectTo:'',pathMatch:'full'},
  {path:'login', component: LoginComponent},
- {path:'registro_vendedor', component: RegistroVendedorComponent}
+ {path:'registro_vendedor', component: RegistroVendedorComponent},
+ {path:'vendedor', component: CuentaVendedorComponent},
+ {path:'registro_producto', component: RegisterProductoComponent},
+ {path:'detalle_producto_vendedor', component: DetalleProductoComponent},
+ {path:'contacto', component:  ContactoComponent}
 ];
 
 @NgModule({
@@ -31,7 +38,10 @@ const routes: Routes= [
     SelecionCompraComponent,
     RegistroVendedorComponent,
     CuentaCompristaComponent,
-    HeaderComponent
+    HeaderComponent,
+    CuentaVendedorComponent,
+    RegisterProductoComponent,
+    DetalleProductoComponent
   ],
   imports: [
     BrowserModule,
