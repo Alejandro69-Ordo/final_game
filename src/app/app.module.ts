@@ -10,9 +10,12 @@ import { DetallesCompraComponent } from './detalles-compra/detalles-compra.compo
 import { SelecionCompraComponent } from './selecion-compra/selecion-compra.component';
 import { RegistroVendedorComponent } from './registro_entidades/registro-vendedor/registro-vendedor.component';
 import { RouterModule,Routes } from '@angular/router';
+import { CuentaCompristaComponent } from './cuenta/cuenta-comprista/cuenta-comprista.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes= [
   {path:'',redirectTo:'',pathMatch:'full'},
+ {path:'login', component: LoginComponent},
  {path:'registro_vendedor', component: RegistroVendedorComponent}
 ];
 
@@ -26,13 +29,15 @@ const routes: Routes= [
     ContactoComponent,
     DetallesCompraComponent,
     SelecionCompraComponent,
-    RegistroVendedorComponent
+    RegistroVendedorComponent,
+    CuentaCompristaComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
-  bootstrap: [RegistroVendedorComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

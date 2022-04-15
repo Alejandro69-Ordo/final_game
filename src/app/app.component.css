@@ -1,0 +1,19 @@
+.container{
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+.menu{
+  background-color: rgb(182, 182, 182);
+}
+
+.seccion2{
+  height: 100%;
+  width: 100%;
+  background-color: antiquewhite;
+}
+
+body{
+  background-color: blue;
+}
