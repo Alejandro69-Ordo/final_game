@@ -15,6 +15,10 @@ import { HeaderComponent } from './header/header.component';
 import { CuentaVendedorComponent } from './cuenta/cuenta-vendedor/cuenta-vendedor.component';
 import { RegisterProductoComponent } from './cuenta/cuenta-vendedor/register-producto/register-producto.component';
 import { DetalleProductoComponent } from './cuenta/cuenta-vendedor/detalle-producto/detalle-producto.component';
+import {HttpClientModule} from '@angular/common/http';
+import { VendedorService } from './Services_Back/vendedor.service';
+import { FormsModule } from '@angular/forms';
+import { ProductoService } from './Services_Back/producto/producto.service';
 
 const routes: Routes= [
   {path:'',redirectTo:'',pathMatch:'full'},
@@ -45,9 +49,11 @@ const routes: Routes= [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [VendedorService,ProductoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
