@@ -39,7 +39,7 @@
 									<input class="form-control" type="number"  min="1" max="10"
                    placeholder="Ingrese la cantidad"
                    [(ngModel)]="product.price"
-                   name="name">
+                   name="price">
 								</div>
 								<div class="row">
 									<div class="col-sm-6">
@@ -68,7 +68,7 @@
 
 								<div class="form-btn">
 									<button class="submit-btn" routerLinkActive="router-link-active"
-                  (click)="create()">Registrar</button>
+                  (click)="update()">Registrar</button>
 								</div>
 							</form>
 						</div>
@@ -80,3 +80,4 @@
 </body>
 
 </html>
+

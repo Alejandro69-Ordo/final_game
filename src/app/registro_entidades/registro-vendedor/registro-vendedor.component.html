@@ -27,29 +27,34 @@
 					</div>
 					<div class="col-md-4 col-md-pull-7">
 						<div class="booking-form">
-							<form #formulario="ngForm">
+							<form  #formulario="ngForm">
 								<div class="form-group">
 									<span class="form-label">Nombres</span>
-									<input class="form-control" type="text" placeholder="Ingrese el nombre"
-                  [(ngModel)]="vendedor.nombre"
+									<input class="form-control" type="text"
+                   placeholder="Ingrese el nombre"
+                  [(ngModel)]="user.name"
+                  name="name"
                   >
 								</div>
                 <div class="form-group">
 									<span class="form-label">Apellidos</span>
 									<input class="form-control" type="text"
                   placeholder="Ingrese el apellido"
-                  [(ngModel)]="vendedor.apellido">
+                  [(ngModel)]="user.lastName"
+                  name="lastName">
 								</div>
                 <div class="form-group">
 									<span class="form-label">Teléfono</span>
 									<input class="form-control" type="number"
-                  [(ngModel)]="vendedor.telefono"
+                  [(ngModel)]="user.phone"
+                  name="phone"
                   placeholder="Ingrese su número de contacto">
 								</div>
                 <div class="form-group">
 									<span class="form-label">Email</span>
 									<input class="form-control" type="email"
-                  [(ngModel)]="vendedor.email"
+                  [(ngModel)]="user.mail"
+                  name="mail"
                   placeholder="Ingrese su correo">
 								</div>
 								<div class="row">
@@ -63,25 +68,29 @@
                 <div class="form-group">
 									<span class="form-label">Dirección</span>
 									<input class="form-control" type="text"
-                  [(ngModel)]="vendedor.direccion"
+                  [(ngModel)]="vendedor.address"
+                  name="address"
                   placeholder="Ingrese la dirección de su ubicación">
 								</div>
                 <div class="form-group">
 									<span class="form-label">Nombre de Negocio</span>
 									<input class="form-control" type="text"
-                  [(ngModel)]="vendedor.nombre_negocio"
+                  [(ngModel)]="vendedor.businessName"
+                  name="businessName"
                   placeholder="Ingrese el nombre de su Negocio">
 								</div>
                 <div class="form-group">
 									<span class="form-label">Cuota de Transporte</span>
 									<input class="form-control" type="number"
-                  [(ngModel)]="vendedor.cuota_transporte"
+                  [(ngModel)]="vendedor.transport"
+                  name="transport"
                   placeholder="Ingrese la Cuota de Transporte">
 								</div>
 
 								<div class="form-btn">
 									<button class="submit-btn" routerLinkActive="router-link-active"
-                  [routerLink]="['/registro_vendedor']">Registrar</button>
+                  (click)="create()"
+                  >Registrar</button>
 								</div>
 							</form>
 						</div>

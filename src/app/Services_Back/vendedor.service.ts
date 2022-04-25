@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Vendedor } from './vendedor';
+import { Saller} from './Saller';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,16 +8,19 @@ import { Observable } from 'rxjs';
 })
 export class VendedorService {
 
-  private url:string="http://localhost:8080/api/vendedor";
-  private HttpHeaders= new HttpHeaders({'Content-Type':'aplication/json'})
+  private urlEndPoint="http://localhost:8080/austrom/";
+  private httpHeaders = new HttpHeaders({'Content-Type':'application/json'});
+  private url: string = this.urlEndPoint + 'saller/register';
+  private url_get: string = this.urlEndPoint + 'saller';
 
   constructor(private http_client:HttpClient) { }
 
-  create(vendedor:Vendedor):Observable<Vendedor>{
-   return this.http_client.post<Vendedor>(this.url,vendedor,{headers:this.HttpHeaders});
+  create(vendedor:Saller):Observable<Saller>{
+   return this.http_client.post<Saller>(this.url,vendedor,{headers:this.httpHeaders});
   }
 
-
-
+  getClientById(sallerId:number):Observable<Saller>{
+    return this.http_client.get(`${this.url_get}/${sallerId}`);
+   }
 
 }

@@ -3,24 +3,23 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { Observable,Subscriber } from 'rxjs';
 import { Saller } from 'src/app/Services_Back/Saller';
 import { VendedorService } from 'src/app/Services_Back/vendedor.service';
-import { Product } from '../../../Services_Back/producto/Product';
-import { ProductoService } from '../../../Services_Back/producto/producto.service';
 import Swal from 'sweetalert2';
+import { Product } from '../../Services_Back/producto/Product';
+import { ProductoService } from '../../Services_Back/producto/producto.service';
 
 @Component({
-  selector: 'app-register-producto',
-  templateUrl: './register-producto.component.html',
-  styleUrls: ['./register-producto.component.css']
+  selector: 'app-update-producto',
+  templateUrl: './update-producto.component.html',
+  styleUrls: ['./update-producto.component.css']
 })
-export class RegisterProductoComponent implements OnInit {
+export class UpdateProductoComponent implements OnInit {
 
   product:Product=new Product();
   observable?:Observable<Saller>;
+  observable_pr?:Observable<Product>;
   myimage?: Observable<any>;
   file?:File;
   foto?:string;
-
-
 
   constructor(private router:Router
     ,private activatedRoute: ActivatedRoute,
@@ -28,9 +27,25 @@ export class RegisterProductoComponent implements OnInit {
     private producto_service:ProductoService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe( params => {
+      let id = params['vendedor'];
+      this.observable= this.vendedor_service. getClientById(id);
+    })
+
+    this.activatedRoute.params.subscribe( params => {
+      let id = params['producto'];
+      this.observable_pr= this.producto_service.getProductById(id);
+    })
+
+    this.observable_pr?.subscribe(
+      _objet=>{
+            this.product=_objet
+
+    }, error => console.log(error));
+
   }
 
-  create(): void {
+  update(): void {
     this.activatedRoute.params.subscribe( params => {
       let id = params['vendedor'];
       this.observable= this.vendedor_service. getClientById(id);
@@ -41,9 +56,9 @@ export class RegisterProductoComponent implements OnInit {
         console.log(_objet)
         this.product.saller=_objet;
         this.product.imageUrl=this.foto;
-        this.producto_service.create(this.product).subscribe(data_=>{
+        this.producto_service.update(this.product,this.product.productId).subscribe(data_=>{
           console.log(data_)
-          Swal.fire('Producto Registrado', `Nombre ${this.product.name}`,`success`);
+          Swal.fire('Producto Actualizado', `Nombre ${this.product.name}`,`success`);
           this.activatedRoute.params.subscribe( params => {
             let id = params['vendedor'];
             this.router.navigate(['/vendedor_',id])
@@ -94,5 +109,6 @@ export class RegisterProductoComponent implements OnInit {
       subscriber.complete();
     };
   }
+
 
 }

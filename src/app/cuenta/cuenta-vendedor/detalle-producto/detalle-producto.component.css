@@ -3442,3 +3442,13 @@ ol {
 .principal{
   padding-left: 10%;
 }
+
+.btn-secondary{
+  margin-left: 10px;
+  background-color: #066ed7;
+  border: 1px solid #066ed7;
+}
+
+.blog__details__content{
+  margin-top: 50px;
+}

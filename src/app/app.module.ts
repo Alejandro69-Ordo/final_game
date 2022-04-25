@@ -19,15 +19,19 @@ import {HttpClientModule} from '@angular/common/http';
 import { VendedorService } from './Services_Back/vendedor.service';
 import { FormsModule } from '@angular/forms';
 import { ProductoService } from './Services_Back/producto/producto.service';
+import { UsuarioService } from './Services_Back/usuario/usuario.service';
+import { UpdateProductoComponent } from './registro-producto/update-producto/update-producto.component';
 
 const routes: Routes= [
   {path:'',redirectTo:'',pathMatch:'full'},
  {path:'login', component: LoginComponent},
  {path:'registro_vendedor', component: RegistroVendedorComponent},
  {path:'vendedor', component: CuentaVendedorComponent},
- {path:'registro_producto', component: RegisterProductoComponent},
- {path:'detalle_producto_vendedor', component: DetalleProductoComponent},
- {path:'contacto', component:  ContactoComponent}
+ {path:'registro_producto/:vendedor', component: RegisterProductoComponent},
+ {path:'detalle_producto_vendedor/:vendedor/:id_vendedor', component: DetalleProductoComponent},
+ {path:'contacto', component:  ContactoComponent},
+ {path:'vendedor_/:vendedor',component:CuentaVendedorComponent},
+ {path:'actualizar_producto/:vendedor/:producto',component:UpdateProductoComponent}
 ];
 
 @NgModule({
@@ -45,7 +49,8 @@ const routes: Routes= [
     HeaderComponent,
     CuentaVendedorComponent,
     RegisterProductoComponent,
-    DetalleProductoComponent
+    DetalleProductoComponent,
+    UpdateProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,7 @@ const routes: Routes= [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [VendedorService,ProductoService],
+  providers: [VendedorService,ProductoService,UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

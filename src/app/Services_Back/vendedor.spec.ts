@@ -1,7 +1,7 @@
-import { Vendedor } from './vendedor';
+import { Saller } from './Saller';
 
 describe('Vendedor', () => {
   it('should create an instance', () => {
-    expect(new Vendedor()).toBeTruthy();
+    expect(new Saller()).toBeTruthy();
   });
 });

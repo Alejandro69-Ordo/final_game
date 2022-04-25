@@ -26,7 +26,7 @@
                                 <button type="submit" class="site-btn">Buscar</button>
                             </form>
                         </div>
-                        <button type="submit" class="button_añadir"  [routerLink]="['/registro_producto']">Añadir</button>
+                        <button type="submit" class="button_añadir"  (click)="registrarProducto()">Añadir</button>
 
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
@@ -63,25 +63,18 @@
                             <h5><a href="#">Fresh Fruit</a></h5>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg"
-                        style="background-image: url('../assets/img/categories/cat-2.jpg');">
-                            <h5><a href="#">Dried Fruit</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="categories__item set-bg"
-                        style="background-image: url('../assets/img/categories/cat-3.jpg');">
-                            <h5><a href="#">Vegetables</a></h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
+
+                    <div class="col-lg-3" *ngFor ="let objeto of productos">
                         <div class="categories__item set-bg"
                         style="background-image: url('../assets/img/categories/cat-4.jpg');"
                         >
-                            <h5><a href="#">drink fruits</a></h5>
+                            <h5><a  [routerLink]="['/detalle_producto_vendedor',objeto.productId,object.sallerId]">
+                              {{objeto.name}}
+                          </a></h5>
                         </div>
+
                     </div>
+
                     <div class="col-lg-3">
                         <div class="categories__item set-bg"
                         style="background-image: url('../assets/img/categories/cat-5.jpg');"
