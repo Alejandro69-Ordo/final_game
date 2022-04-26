@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Booking Form HTML Template</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+</head>
+
+<body>
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 col-md-push-5">
+						<div class="booking-cta">
+							<h1>Registro</h1>
+              <h2>AustroMarket</h2>
+						</div>
+					</div>
+					<div class="col-md-4 col-md-pull-7">
+						<div class="booking-form">
+							<form  #formulario="ngForm">
+								<div class="form-group">
+									<span class="form-label">Nombres</span>
+									<input class="form-control" type="text"
+                   placeholder="Ingrese el nombre"
+                   [(ngModel)]="user.name"
+                  name="name"
+                  >
+								</div>
+                <div class="form-group">
+									<span class="form-label">Apellidos</span>
+									<input class="form-control" type="text"
+                  placeholder="Ingrese el apellido"
+                  [(ngModel)]="user.lastName"
+                  name="lastName">
+								</div>
+                <div class="form-group">
+									<span class="form-label">Teléfono</span>
+									<input class="form-control" type="number"
+                  [(ngModel)]="user.phone"
+                  name="phone"
+                  placeholder="Ingrese su número de contacto">
+								</div>
+                <div class="form-group">
+									<span class="form-label">Email</span>
+									<input class="form-control" type="email"
+                  [(ngModel)]="user.mail"
+                  name="mail"
+                  placeholder="Ingrese su correo">
+								</div>
+
+								<div class="form-btn">
+									<button class="submit-btn"
+                  (click)="create()"
+                  routerLinkActive="router-link-active">Registrar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+

@@ -22,6 +22,7 @@ import { ProductoService } from './Services_Back/producto/producto.service';
 import { UsuarioService } from './Services_Back/usuario/usuario.service';
 import { UpdateProductoComponent } from './registro-producto/update-producto/update-producto.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { RegistroClienteComponent } from './registro-cliente/registro-cliente.component';
 
 const routes: Routes= [
   {path:'',component:GamaProductosComponent},
@@ -33,7 +34,7 @@ const routes: Routes= [
  {path:'contacto', component:  ContactoComponent},
  {path:'vendedor_/:vendedor',component:CuentaVendedorComponent},
  {path:'actualizar_producto/:vendedor/:producto',component:UpdateProductoComponent},
-
+ {path:'registro_cli',component:RegistroClienteComponent}
 ];
 
 @NgModule({
@@ -52,7 +53,8 @@ const routes: Routes= [
     CuentaVendedorComponent,
     RegisterProductoComponent,
     DetalleProductoComponent,
-    UpdateProductoComponent
+    UpdateProductoComponent,
+    RegistroClienteComponent
   ],
   imports: [
     BrowserModule,

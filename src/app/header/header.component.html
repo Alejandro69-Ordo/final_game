@@ -12,6 +12,13 @@
                           <ul>
                               <li><a href="./index.html">Principal</a></li>
                               <li><a [routerLink]="['/login']">Login</a></li>
+                              <li><a  >Registro</a>
+                                  <ul class="header__menu__dropdown">
+                                    <li><a href="./shop-details.html">Registro Producto</a></li>
+                                    <li><a href="./shop-details.html">Registro Vendedor</a></li>
+                                    <li><a [routerLink]="['/registro_cli']">Registro Cliente</a></li>
+                                  </ul>
+                              </li>
                               <li class="active"><a [routerLink]="['/contacto']">Contact</a></li>
                           </ul>
                       </nav>
