@@ -3471,3 +3471,11 @@ ol {
 
   background-color: rgba(255, 255, 255, 1);
 }
+
+.footer_about_logo {
+	margin-bottom: 35px;
+	max-width: 40%;
+ 	max-height: 40%;
+	border-left: 25px;
+	margin-left: 40%;
+}

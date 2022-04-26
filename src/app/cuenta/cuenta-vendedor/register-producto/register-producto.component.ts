@@ -17,11 +17,8 @@ export class RegisterProductoComponent implements OnInit {
   product:Product=new Product();
   observable?:Observable<Saller>;
   myimage?: Observable<any>;
-  file?:File;
+  file:File=new File([],'');
   foto?:string;
-
-
-
   constructor(private router:Router
     ,private activatedRoute: ActivatedRoute,
     private vendedor_service:VendedorService,
@@ -40,19 +37,24 @@ export class RegisterProductoComponent implements OnInit {
       _objet=>{
         console.log(_objet)
         this.product.saller=_objet;
-        this.product.imageUrl=this.foto;
         this.producto_service.create(this.product).subscribe(data_=>{
           console.log(data_)
-          Swal.fire('Producto Registrado', `Nombre ${this.product.name}`,`success`);
+
+         this.producto_service.upload(this.file,data_.productId).subscribe();
+        });
+    }, error => console.log(error));
+
+    console.log(this.file?.name+"pito");
+
+    Swal.fire('Producto Registrado', `Nombre ${this.product.name}`,`success`);
           this.activatedRoute.params.subscribe( params => {
             let id = params['vendedor'];
             this.router.navigate(['/vendedor_',id])
           })
-        });
 
-    }, error => console.log(error));
   }
 
+    //________________________
   isImageSaved: boolean = false;
   cardImageBase64: string = '';
 
@@ -70,21 +72,22 @@ export class RegisterProductoComponent implements OnInit {
             this.foto=imgBase64Path;
         };
       };
+      this.file=fileInput.target.files[0];
       reader.readAsDataURL(fileInput.target.files[0]);
     }
   }
-  //________________________
+
 
   convertToBase64(file: File) {
     this.myimage = new Observable((subscriber: Subscriber<any>) => {
       this.readFile(file, subscriber);
+      this.file=file;
     });
   }
 
   readFile(file: File, subscriber: Subscriber<any>) {
     const filereader = new FileReader();
     filereader.readAsDataURL(file);
-
     filereader.onload = () => {
       subscriber.next(filereader.result);
       subscriber.complete();
@@ -94,5 +97,7 @@ export class RegisterProductoComponent implements OnInit {
       subscriber.complete();
     };
   }
+
+
 
 }

@@ -49,22 +49,26 @@
 										</div>
 									</div>
 								</div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <span class="form-label">Cargar Imagen</span>
 
-                <div class="row">
-									<fieldset class="form-group">
-                    <label>Upload Image</label>
-                    <div class="custom-file fileInputProfileWrap">
-                      <div class="row col-md-12">
-                        <input type="file" (change)="CreateBase64String($event)" class="fileInputProfile form-control">
-                      </div>
-                      <div class="img-space">
-                        <ng-container *ngIf="isImageSaved;">
-                          <img [src]="cardImageBase64" style="width: 100px;height:100px;" />
-                        </ng-container>
+
+                          <input type="file"
+                           (change)="CreateBase64String($event)"
+                           class="fileInputProfile form-control"
+                           >
+
+                            <div class="img-space">
+                              <ng-container *ngIf="isImageSaved;">
+                                <img [src]="cardImageBase64" style="width: 100px;height:100px;" />
+                              </ng-container>
+                            </div>
+
+                        </div>
                       </div>
                     </div>
-                  </fieldset>
-								</div>
 
 								<div class="form-btn">
 									<button class="submit-btn" routerLinkActive="router-link-active"

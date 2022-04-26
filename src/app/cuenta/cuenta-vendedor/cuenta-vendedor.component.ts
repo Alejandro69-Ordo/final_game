@@ -28,7 +28,7 @@ export class CuentaVendedorComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( params => {
       let id = params['vendedor'];
-      this.observable= this.vendedor_service. getClientById(id);
+      this.observable= this.vendedor_service.getClientById(id);
     })
 
     this.observable?.subscribe(

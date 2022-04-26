@@ -3472,17 +3472,17 @@ ol {
 }
 
 .button_añadir{
-  margin-top: 1px;
+  margin-top: 0,1px;
   margin-left: 10px;
 	font-size: 14px;
-	color: #000000;
+	color: #ffdd00;
 	font-weight: 800;
   height: 51px;
 	text-transform: uppercase;
 	display: inline-block;
 	padding: 13px 30px 12px;
-	background: #ffe749;
-	border-bottom: 1px solid rgb(0, 0, 0);
+	background: #000000;
+	border-bottom: 2px solid #ffdd00;
 }
 
 

@@ -18,7 +18,7 @@ export class UpdateProductoComponent implements OnInit {
   observable?:Observable<Saller>;
   observable_pr?:Observable<Product>;
   myimage?: Observable<any>;
-  file?:File;
+  file:File=new File([],'');
   foto?:string;
 
   constructor(private router:Router
@@ -58,11 +58,15 @@ export class UpdateProductoComponent implements OnInit {
         this.product.imageUrl=this.foto;
         this.producto_service.update(this.product,this.product.productId).subscribe(data_=>{
           console.log(data_)
+
+          this.producto_service.upload(this.file,data_.productId).subscribe();
+
           Swal.fire('Producto Actualizado', `Nombre ${this.product.name}`,`success`);
           this.activatedRoute.params.subscribe( params => {
             let id = params['vendedor'];
             this.router.navigate(['/vendedor_',id])
           })
+
         });
 
     }, error => console.log(error));
@@ -85,6 +89,7 @@ export class UpdateProductoComponent implements OnInit {
             this.foto=imgBase64Path;
         };
       };
+      this.file=fileInput.target.files[0];
       reader.readAsDataURL(fileInput.target.files[0]);
     }
   }

@@ -6,5 +6,7 @@ lastName?:string;
 phone?:string;
 mail?:string;
 state?:boolean;
+password?:string;
+tipo?:number;
 
 }

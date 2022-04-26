@@ -21,9 +21,10 @@ import { FormsModule } from '@angular/forms';
 import { ProductoService } from './Services_Back/producto/producto.service';
 import { UsuarioService } from './Services_Back/usuario/usuario.service';
 import { UpdateProductoComponent } from './registro-producto/update-producto/update-producto.component';
+import { PrincipalComponent } from './principal/principal.component';
 
 const routes: Routes= [
-  {path:'',redirectTo:'',pathMatch:'full'},
+  {path:'',component:GamaProductosComponent},
  {path:'login', component: LoginComponent},
  {path:'registro_vendedor', component: RegistroVendedorComponent},
  {path:'vendedor', component: CuentaVendedorComponent},
@@ -31,7 +32,8 @@ const routes: Routes= [
  {path:'detalle_producto_vendedor/:vendedor/:id_vendedor', component: DetalleProductoComponent},
  {path:'contacto', component:  ContactoComponent},
  {path:'vendedor_/:vendedor',component:CuentaVendedorComponent},
- {path:'actualizar_producto/:vendedor/:producto',component:UpdateProductoComponent}
+ {path:'actualizar_producto/:vendedor/:producto',component:UpdateProductoComponent},
+
 ];
 
 @NgModule({

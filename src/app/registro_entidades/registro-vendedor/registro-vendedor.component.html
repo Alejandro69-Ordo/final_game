@@ -57,6 +57,14 @@
                   name="mail"
                   placeholder="Ingrese su correo">
 								</div>
+                <div class="form-group">
+									<span class="form-label">Clave</span>
+									<input class="form-control" type="password"
+                  [(ngModel)]="user.password"
+                  name="password"
+                  placeholder="Ingrese la Clave">
+								</div>
+
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="form-group">
@@ -86,6 +94,8 @@
                   name="transport"
                   placeholder="Ingrese la Cuota de Transporte">
 								</div>
+
+
 
 								<div class="form-btn">
 									<button class="submit-btn" routerLinkActive="router-link-active"
